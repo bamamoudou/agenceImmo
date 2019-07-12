@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Benvenus dans notre agence{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+<div class="jumbotron text-center">
+    <h1>Agence B Solution</h1>
+    <p>Fortasse amicitiis sed iudicet suaque non ego enim profectae spe et sibi munitus enim est expetendis habebat enim virtute consuetudo posita indigens sunt mei Africanus spe diligendi sunt auxit posita hercule quisque opinione est est quamquam earum quam confidit ut benevolentiam moribus posita iudicet moribus ut quisque de in fortasse.</p>
+
+</div>
+
+    <div class="container">
+        <h2>Les derniers biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-text">
+                                {{ property.city }} ({{ property.postalcode }})
+                            </p>
+                            <div class="text-primary" style="font-weight: bold;font-size: 2rem
+                            ;">{{ property.formattedPrice }} £</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
